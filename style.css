@@ -1,0 +1,392 @@
+/*
+ * Use this CSS to learn some intersting techniques,
+ * in case you're wondering how I built the UI.
+ * Have fun! 😁
+ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+/* to hide the scrollbar*/
+html::-webkit-scrollbar {
+  display: none;
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  color: #444;
+  background-color: #f3f3f3;
+  min-height: 100vh;
+  padding: 2rem;
+  background-image: linear-gradient(to top left, #e6ecff, #b3c2f0);
+}
+
+nav {
+  display: flexbox;
+  /* justify-content: space-between; */
+  align-items: center;
+  padding: 0 2rem;
+
+  /* left: 5%;
+  top: 5%;
+  position: absolute; */
+}
+
+.heading {
+  text-align: center;
+  display: block;
+}
+
+.name {
+  font-size: 3rem;
+  font-weight: 600;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.welcome {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #000;
+  left: 5%;
+  top: 5%;
+  position: absolute;
+}
+
+.logo {
+  height: 5.25rem;
+  margin-top: 1rem;
+}
+
+.login {
+  display: flex;
+  flex-direction: column;
+
+  top: 1%;
+  right: 1%;
+  gap: 1.2rem;
+  position: absolute;
+  background-image: linear-gradient(to top right, #ccd9ff, #99adeb);
+
+  /* background-color: rgb(53, 203, 206); */
+  /* border: 0.5px solid grey; */
+  border-radius: 5%;
+}
+
+.login__input {
+  margin-top: 0.5rem;
+  margin-left: 0.5rem;
+  border: none;
+  padding: 0.5rem 2rem;
+  font-size: 1.6rem;
+  font-family: inherit;
+  text-align: center;
+  width: 20rem;
+  border-radius: 10rem;
+  margin-right: 1rem;
+  color: inherit;
+  border: 1px solid #fff;
+  background-color: #000;
+  color: #fff;
+}
+
+.login__input:focus {
+  outline: none;
+  border: 1px solid #ccc;
+}
+
+.login__input::placeholder {
+  color: #bbb;
+}
+
+.login__btn {
+  border: 0.1px solid rgb(168, 160, 160);
+  background: none;
+  font-size: 2.2rem;
+  color: inherit;
+  cursor: pointer;
+  transition: all 0.3s;
+  border-radius: 10rem;
+  height: 3.5rem;
+  margin-top: 0.2rem;
+  width: 20rem;
+  margin-top: 0.8rem;
+  margin-bottom: 0.8rem;
+  margin-left: 0.5rem;
+
+  /* box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+    0 17px 50px 0 rgba(0, 0, 0, 0.19); */
+}
+
+/* .login__btn:hover, */
+.login__btn:focus,
+/* .btn--sort:hover, */
+.btn--sort:focus {
+  outline: none;
+
+  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+    0 17px 50px 0 rgba(0, 0, 0, 0.19);
+  background-image: linear-gradient(to top left, #37a57b, #a5dc76d1);
+  border: none;
+
+  color: #333;
+}
+
+/* MAIN */
+.app {
+  position: relative;
+  max-width: 100rem;
+  margin: 4rem auto;
+  display: grid;
+  grid-template-columns: 4fr 3fr;
+  grid-template-rows: auto repeat(3, 15rem) auto;
+  gap: 2rem;
+
+  /* NOTE This creates the fade in/out anumation */
+  opacity: 0;
+  transition: all 1s;
+}
+
+.balance {
+  grid-column: 1 / span 2;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.balance__label {
+  font-size: 2.2rem;
+  font-weight: 500;
+  margin-bottom: -0.2rem;
+  color: #000;
+}
+
+.balance__date {
+  font-size: 1.4rem;
+  color: #333;
+}
+
+.balance__value {
+  font-size: 4.5rem;
+  font-weight: 400;
+}
+
+/* MOVEMENTS */
+.movements {
+  grid-row: 2 / span 3;
+  /* background-color: #fff; */
+  border-radius: 1.5rem;
+  color: #fff;
+
+  overflow: scroll;
+  background-image: linear-gradient(to top right, #ccd9ff, #99adeb);
+}
+
+.movements::-webkit-scrollbar {
+  display: none;
+}
+
+.movements__row {
+  padding: 2.25rem 4rem;
+  display: flex;
+  align-items: center;
+  border-bottom: 0.01px solid rgba(112, 112, 112, 0.47);
+}
+.movements__type {
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 10rem;
+  margin-right: 2rem;
+}
+
+.movements__date {
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: #666;
+}
+
+.movements__type--deposit {
+  font-size: 1.1rem;
+  background-color: #8ae6a1;
+  /* background-image: linear-gradient(to top left, #9be15d, #8ae6a1); */
+}
+
+.movements__type--withdrawal {
+  font-size: 1.1rem;
+  background-color: #f6666d;
+}
+
+.movements__value {
+  font-size: 1.7rem;
+  margin-left: auto;
+  /* color: #333; */
+}
+
+.movements__value::after {
+  font-size: 2rem;
+
+  /* font-weight: bold; */
+  color: #fff;
+  /* color: #000; */
+  /* content: '  ₹'; */
+}
+
+/* SUMMARY */
+.summary {
+  grid-row: 5 / 6;
+  display: flex;
+  align-items: baseline;
+  padding: 0 0.3rem;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
+.summary__label {
+  font-size: 1.4rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-right: 0.8rem;
+}
+
+.summary__value {
+  font-size: 2.2rem;
+  margin-right: 2.5rem;
+  font-weight: 600;
+}
+
+.summary__value--in,
+.summary__value--interest {
+  color: #049517;
+  font-size: 1.5rem;
+}
+
+.summary__value--out {
+  color: #f5465d;
+  font-size: 1.5rem;
+}
+
+.btn--sort {
+  margin-left: auto;
+  border: none;
+  background: none;
+  font-size: 1.3rem;
+  font-weight: 700;
+  cursor: pointer;
+  height: 3.5rem;
+  width: 8rem;
+  /* box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+    0 17px 50px 0 rgba(0, 0, 0, 0.19); */
+  /* color: #000; */
+  border: 0.1px solid rgb(105, 105, 105);
+  padding: 1rem;
+  border-radius: 10rem;
+}
+
+/* OPERATIONS */
+.operation {
+  border-radius: 1rem;
+  padding: 3rem 4rem;
+  color: #333;
+}
+
+.operation--transfer {
+  background-image: linear-gradient(to top left, #ccd6f5, #99adeb);
+  /* background-image: linear-gradient(to top left, #b3c6ff, #3366ff); */
+}
+
+.operation--loan {
+  background-image: linear-gradient(to top left, #99adeb, #ccd6f5);
+  /* background-image: linear-gradient(to top left, #002db3, #99b3ff); */
+}
+
+.operation--close {
+  background-image: linear-gradient(to top left, #f0cccc, #c23333);
+}
+
+h2 {
+  margin-bottom: 1.5rem;
+  font-size: 1.7rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.form {
+  display: grid;
+  grid-template-columns: 2.5fr 2.5fr 1fr;
+
+  gap: 0.4rem 1rem;
+}
+
+/* Exceptions for interst */
+.form.form--loan {
+  grid-template-columns: 2.5fr 1fr 2.5fr;
+}
+.form__label--loan {
+  grid-row: 2;
+}
+/* End exceptions */
+
+.form__input {
+  width: 100%;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.4);
+  font-family: inherit;
+  font-size: 1.5rem;
+  text-align: center;
+  color: #333;
+  padding: 0.3rem 1rem;
+  border-radius: 0.7rem;
+  transition: all 0.3s;
+}
+
+.form__input:focus {
+  outline: none;
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+.form__label {
+  font-size: 1.3rem;
+  text-align: center;
+}
+
+.form__btn {
+  border: none;
+  border-radius: 8rem;
+  width: 6rem;
+  height: 3rem;
+  font-size: 1.8rem;
+  background-color: rgba(255, 255, 255, 0.649);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.form__btn:focus {
+  outline: none;
+  background-color: rgba(255, 255, 255, 0.845);
+  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+    0 17px 50px 0 rgba(42, 42, 42, 0.532);
+  background-image: linear-gradient(to top left, #37a57b, #a5dc76d1);
+}
+
+.logout-timer {
+  padding: 0 0.3rem;
+  margin-top: 1.9rem;
+  text-align: right;
+  font-size: 1.25rem;
+}
+
+.timer {
+  font-weight: 600;
+}
